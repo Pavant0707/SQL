@@ -1,0 +1,54 @@
+CREATE DATABASE SQL_SERVER
+USE  SQL_SERVER
+CREATE TABLE STUDENT (STDID INT,SNAME VARCHAR(40),SFEE DECIMAL(6,2),SAGE TINYINT);
+
+INSERT INTO STUDENT VALUES(1,'RAM',2000,22);
+INSERT INTO STUDENT VALUES(2,'SUNIL',3000,23);
+INSERT INTO STUDENT VALUES(3,'BHANU',4000,24);
+INSERT INTO STUDENT(STDID,SNAME,SAGE) VALUES(4,'SURYA',23);
+INSERT INTO STUDENT(STDID,SNAME,SFEE) VALUES(5,'MACHA',2000);
+ --Sort a result set by one column in ascending order
+SELECT
+    *
+FROM
+    STUDENT
+ORDER BY SNAME
+
+
+SELECT
+    *
+FROM
+    STUDENT
+ORDER BY SNAME DESC
+
+-- Sort a result set by an expression
+SELECT
+    SNAME
+FROM
+    STUDENT
+ORDER BY
+    LEN(SNAME) DESC;
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+	SELECT
+    *
+FROM
+    STUDENT
+ORDER BY
+    SNAME DESC,
+SNAME
+OFFSET 2 ROWS 
+FETCH FIRST 10 ROWS ONLY;
+
+
+SELECT
+   *
+FROM
+    STUDENT
+ORDER BY
+    SNAME DESC,
+	SNAME
+OFFSET 0 ROWS 
+FETCH FIRST 10 ROWS ONLY;
+-------------------------------------------------------------------------------------
